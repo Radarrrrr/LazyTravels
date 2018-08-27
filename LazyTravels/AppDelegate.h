@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RootViewController.h"
+#import "HomeViewController.h"
+#import "SettingViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

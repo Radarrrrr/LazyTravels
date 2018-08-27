@@ -17,6 +17,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    SettingViewController *settingVC = [[SettingViewController alloc] init];
+    HomeViewController *homeVC = [[HomeViewController alloc]init];
+    
+    UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:homeVC];
+    mainNav.navigationBarHidden = YES;
+    
+    RootViewController *rootView = [[RootViewController alloc] init];
+    rootView.settingVC = settingVC;
+    rootView.mainNav = mainNav;
+    
+    self.window.rootViewController = rootView;
+    [self.window makeKeyAndVisible];
+    
+    
     return YES;
 }
 
