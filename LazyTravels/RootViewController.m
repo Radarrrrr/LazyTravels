@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+
     self.view.backgroundColor = [UIColor blueColor];
     
     //将settingVC和mainVC添加到self中作为子控制器。将他们的view添加到self.view中
