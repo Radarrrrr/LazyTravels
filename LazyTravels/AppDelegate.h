@@ -7,14 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RootViewController.h"
+#import "RESideMenu.h"
 #import "HomeViewController.h"
-#import "SettingViewController.h"
+#import "MenuViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, RESideMenuDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (nonatomic, strong) RESideMenu *rootViewController;
+
+@property (nonatomic, strong) HomeViewController *homeVC;
+@property (nonatomic, strong) UINavigationController *mainNav;
+@property (nonatomic, strong) MenuViewController *menuVC;
 
 @end
 
