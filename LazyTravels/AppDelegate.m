@@ -40,6 +40,7 @@
     self.homeVC = [[HomeViewController alloc] init];
     self.mainNav = [[UINavigationController alloc] initWithRootViewController:_homeVC];
     _mainNav.navigationBarHidden = YES;
+    _mainNav.navigationBar.translucent = NO; //不要导航条模糊，为了让页面从导航条下部是0开始，如果为YES，则从屏幕顶部开始是0
 
     self.menuVC = [[MenuViewController alloc] init];
 
@@ -90,10 +91,14 @@
 
 
 
+
 #pragma mark - RESideMenu Delegate
 - (void)sideMenu:(RESideMenu *)sideMenu willShowMenuViewController:(UIViewController *)menuViewController
 {
     NSLog(@"willShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
+    
+    UIView *contentView = menuViewController.sideMenuViewController.contentViewController.view;
+    [RDFunction addRadiusToView:contentView radius:12];
 }
 
 - (void)sideMenu:(RESideMenu *)sideMenu didShowMenuViewController:(UIViewController *)menuViewController
@@ -109,7 +114,11 @@
 - (void)sideMenu:(RESideMenu *)sideMenu didHideMenuViewController:(UIViewController *)menuViewController
 {
     NSLog(@"didHideMenuViewController: %@", NSStringFromClass([menuViewController class]));
+    
+    UIView *contentView = menuViewController.sideMenuViewController.contentViewController.view;
+    [RDFunction addRadiusToView:contentView radius:0];
 }
+
 
 
 
