@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "CustomNavBar.h"
 
 @interface AppDelegate ()
 
@@ -24,9 +25,14 @@
     self.mainNav = [[UINavigationController alloc] initWithRootViewController:_homeVC];
     //_mainNav.navigationBarHidden = YES; //用这个会影响右滑关闭手势，用下面那个
     _mainNav.navigationBar.hidden=YES;
-    
     _mainNav.navigationBar.translucent = NO; //不要导航条模糊，为了让页面从导航条下部是0开始，如果为YES，则从屏幕顶部开始是0
 
+    //添加自定义导航栏
+    CustomNavBar *custNavBar = [[CustomNavBar alloc] init];
+    custNavBar.navController = _mainNav;
+    [_mainNav.view addSubview:custNavBar];
+    
+    
     self.menuVC = [[MenuViewController alloc] init];
 
     self.rootViewController = [[RESideMenu alloc] initWithContentViewController:_mainNav leftMenuViewController:_menuVC rightMenuViewController:nil];

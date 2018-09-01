@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C4F5B8C21353D7B00B10613 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4F5B8B21353D7B00B10613 /* MenuViewController.m */; };
+		0C4F5B8F213A92A800B10613 /* CustomNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4F5B8E213A92A800B10613 /* CustomNavBar.m */; };
 		0C8977372133CD86003B6CAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8977362133CD86003B6CAB /* AppDelegate.m */; };
 		0C89773D2133CD86003B6CAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C89773B2133CD86003B6CAB /* Main.storyboard */; };
 		0C89773F2133CD88003B6CAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C89773E2133CD88003B6CAB /* Assets.xcassets */; };
@@ -23,6 +24,9 @@
 		0C4F5B8321352ECC00B10613 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		0C4F5B8A21353D7B00B10613 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		0C4F5B8B21353D7B00B10613 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		0C4F5B8D213A92A800B10613 /* CustomNavBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomNavBar.h; sourceTree = "<group>"; };
+		0C4F5B8E213A92A800B10613 /* CustomNavBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomNavBar.m; sourceTree = "<group>"; };
+		0C4F5B99213A9A4200B10613 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		0C8977322133CD86003B6CAB /* LazyTravels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LazyTravels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C8977352133CD86003B6CAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0C8977362133CD86003B6CAB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -75,8 +79,11 @@
 		0C8977342133CD86003B6CAB /* LazyTravels */ = {
 			isa = PBXGroup;
 			children = (
+				0C4F5B99213A9A4200B10613 /* Constants.h */,
 				0C8977352133CD86003B6CAB /* AppDelegate.h */,
 				0C8977362133CD86003B6CAB /* AppDelegate.m */,
+				0C4F5B8D213A92A800B10613 /* CustomNavBar.h */,
+				0C4F5B8E213A92A800B10613 /* CustomNavBar.m */,
 				0C4F5B8A21353D7B00B10613 /* MenuViewController.h */,
 				0C4F5B8B21353D7B00B10613 /* MenuViewController.m */,
 				0C8977762133DDB1003B6CAB /* Home */,
@@ -233,6 +240,7 @@
 				0C8977372133CD86003B6CAB /* AppDelegate.m in Sources */,
 				0C4F5B8C21353D7B00B10613 /* MenuViewController.m in Sources */,
 				0C89777A2133DDF9003B6CAB /* HomeViewController.m in Sources */,
+				0C4F5B8F213A92A800B10613 /* CustomNavBar.m in Sources */,
 				0C89777D2133DE1D003B6CAB /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
