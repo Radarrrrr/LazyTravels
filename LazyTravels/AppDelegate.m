@@ -35,27 +35,27 @@
     
     
     
-     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-     self.homeVC = [[HomeViewController alloc] init];
-     self.mainNav = [[UINavigationController alloc] initWithRootViewController:_homeVC];
-    
-    
-     self.menuVC = [[MenuViewController alloc] init];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-     self.rootViewController = [[RESideMenu alloc] initWithContentViewController:_mainNav leftMenuViewController:_menuVC rightMenuViewController:nil];
-     _rootViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
-     _rootViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
-     _rootViewController.delegate = self;
-     _rootViewController.contentViewShadowColor = [UIColor blackColor];
-     _rootViewController.contentViewShadowOffset = CGSizeMake(0, 0);
-     _rootViewController.contentViewShadowOpacity = 0.6;
-     _rootViewController.contentViewShadowRadius = 12;
-     _rootViewController.contentViewShadowEnabled = YES;
-     self.window.rootViewController = _rootViewController;
-     
-     self.window.backgroundColor = [UIColor whiteColor];
-     [self.window makeKeyAndVisible];
+    self.homeVC = [[HomeViewController alloc] init];
+    self.mainNav = [[UINavigationController alloc] initWithRootViewController:_homeVC];
+    _mainNav.navigationBarHidden = YES;
+
+    self.menuVC = [[MenuViewController alloc] init];
+
+    self.rootViewController = [[RESideMenu alloc] initWithContentViewController:_mainNav leftMenuViewController:_menuVC rightMenuViewController:nil];
+    _rootViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
+    _rootViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
+    _rootViewController.delegate = self;
+    _rootViewController.contentViewShadowColor = [UIColor blackColor];
+    _rootViewController.contentViewShadowOffset = CGSizeMake(0, 0);
+    _rootViewController.contentViewShadowOpacity = 0.6;
+    _rootViewController.contentViewShadowRadius = 12;
+    _rootViewController.contentViewShadowEnabled = YES;
+    self.window.rootViewController = _rootViewController;
+
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     
     
     return YES;
