@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TravelsViewController : UIViewController
+@interface TravelsViewController : UIViewController 
 
 @end
