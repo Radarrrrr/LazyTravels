@@ -10,6 +10,14 @@
 
 @interface CustomNavBar : UIView <UINavigationControllerDelegate>
 
-@property (nonatomic, weak) UINavigationController *navController;
++ (instancetype)sharedNavBar;
+
+//@property (nonatomic) BOOL navBarHidden;    //是否隐藏 default YES
+
+- (void)addNavBarOnMainNav:(UINavigationController*)mainNav; //添加本导航条到主导航控制器上，本方法只能调用一次
+
+
+
+
 
 @end

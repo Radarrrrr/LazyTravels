@@ -24,7 +24,7 @@
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     leftButton.frame = CGRectMake(0, 250, 150, 150);
     [leftButton addTarget:self action:@selector(leftButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    [leftButton setTitle:@"HOME" forState:UIControlStateNormal];
+    [leftButton setTitle:@"MENU" forState:UIControlStateNormal];
     [self.view addSubview:leftButton];
     
     
@@ -32,7 +32,7 @@
 
 -(void)leftButtonPressed
 {
-    [DDCenter actionForLinkURL:@"home://"];
+    [DDCenter actionForLinkURL:@"menu://"];
     
 }
 

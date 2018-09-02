@@ -132,6 +132,13 @@
         [navController.sideMenuViewController hideMenuViewController];
         [navController popToRootViewControllerAnimated:YES];
     }
+    else if([linkURL hasPrefix:@"menu://"]) //打开左侧菜单
+    {
+        //menu://
+        [navController popToRootViewControllerAnimated:YES];
+        [navController.sideMenuViewController presentLeftMenuViewController];
+
+    }
     else if([linkURL hasPrefix:@"setting://"]) //进入setting页面
     {
         //setting://

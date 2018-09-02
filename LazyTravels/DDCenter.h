@@ -9,6 +9,7 @@
 /* 支持的linkURL字典：
 
  home://                            //回到首页
+ menu://                            //打开左侧菜单
  profile://                         //唤起个人中心页面
  setting://                         //唤起setting页面
  http://                            //http和https都直接开启web页面显示

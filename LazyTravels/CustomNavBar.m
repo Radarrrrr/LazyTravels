@@ -9,6 +9,10 @@
 #import "CustomNavBar.h"
 
 
+#define NAV_FRAME_SHOW  CGRectMake(0, 0, SCR_WIDTH, 64) //导航条显示时候的尺寸
+#define NAV_FRAME_HIDE  CGRectMake(0, 0, 60, 64)        //导航条隐藏时候的尺寸
+
+
 typedef enum {
     directionLeft = 0,    //返回按钮方向向左
     directionRight        //返回按钮方向向右
@@ -18,12 +22,16 @@ typedef enum {
 
 @interface CustomNavBar () {
     
-   UINavigationController *_navController;
+    UINavigationController *_navController;
+    //BOOL _navBarHidden;
+    
 }
 
-@property (nonatomic, strong) UIButton *navBackBtn;
+@property (nonatomic, weak)   UINavigationController *navController; //主导航控制器
 
-@property (nonatomic) NavBtnDirection curDirection; //当前按钮朝向
+//@property (nonatomic, strong) UIImageView *tintView;     //导航条背景，用于修改颜色、透明度、贴图等
+@property (nonatomic, strong) UIButton *navBackBtn;      //主导航返回按钮
+@property (nonatomic)         NavBtnDirection curDirection; //当前按钮朝向
 
 @end
 
@@ -31,15 +39,17 @@ typedef enum {
 
 @implementation CustomNavBar
 @dynamic navController;
+//@dynamic navBarHidden;
 
 
-- (id)init{
-    self = [super init];
-    if(self){
-        //do something
-        self = [[CustomNavBar alloc] initWithFrame:CGRectMake(0, 20, SCR_WIDTH, 44)];
-    }
-    return self;
++ (instancetype)sharedNavBar
+{
+    static dispatch_once_t onceToken;
+    static CustomNavBar *navBar;
+    dispatch_once(&onceToken, ^{
+        navBar = [[CustomNavBar alloc] initWithFrame:NAV_FRAME_HIDE];
+    });
+    return navBar;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -47,17 +57,24 @@ typedef enum {
     self = [super initWithFrame:frame];
     if (self) 
     {
-        self.backgroundColor = COLOR_CLEAR;
+        self.backgroundColor = [UIColor clearColor];
         self.curDirection = directionRight;
+        
+        //_navBarHidden = YES;
+        
+        //add tintView
+//        self.tintView = [[UIImageView alloc] initWithFrame:NAV_FRAME_SHOW];
+//        _tintView.backgroundColor = [UIColor whiteColor];
+//        _tintView.alpha = 0.5;
+//        [self addSubview:_tintView];
+        
         
         //add navBackBtn
         self.navBackBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _navBackBtn.frame = CGRectMake(10, 2, 40, 40);
+        _navBackBtn.frame = CGRectMake(10, 22, 40, 40);
         [_navBackBtn setBackgroundImage:IMAGE(@"IconNavback") forState:UIControlStateNormal];
         [_navBackBtn addTarget:self action:@selector(navBackAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_navBackBtn];
-        
-        
         
         
         
@@ -70,6 +87,10 @@ typedef enum {
 {
 }
 
+
+
+
+#pragma mark - setter & getter
 - (void)setNavController:(UINavigationController *)navController
 {
     _navController = navController;
@@ -84,7 +105,29 @@ typedef enum {
     return _navController;
 }
 
+//- (void)setNavBarHidden:(BOOL)navBarHidden
+//{
+//    _navBarHidden = navBarHidden;
+//}
+//- (BOOL)navBarHidden
+//{
+//    return _navBarHidden;
+//}
 
+
+
+#pragma mark - 类方法，供外部使用
+- (void)addNavBarOnMainNav:(UINavigationController*)mainNav
+{
+    if(!mainNav || ![mainNav isKindOfClass:[UINavigationController class]]) return;
+    
+    self.navController = mainNav;
+    [mainNav.view addSubview:self];
+}
+
+
+
+#pragma mark - 内部方法
 - (void)navBackAction:(id)sender
 {
     if(!self.navController) return;
@@ -98,11 +141,9 @@ typedef enum {
     else
     {
         //已经到了root，打开左菜单
-        [_navController.topViewController performSelector:@selector(presentLeftMenuViewController:) withObject:nil];
+        [DDCenter actionForLinkURL:@"menu://"];
     }
-        
 }
-
 
 //UINavigationControllerDelegate
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
@@ -123,7 +164,6 @@ typedef enum {
         
 }
 
-
 - (void)rotateNavBtnToDirection:(NavBtnDirection)direction
 {  
     if(_curDirection == direction) return;
@@ -134,7 +174,10 @@ typedef enum {
     }];
 }  
 
-
+//- (void)showNavBar:(BOOL)bshow
+//{
+//    
+//}
 
 
 @end

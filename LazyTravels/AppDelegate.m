@@ -21,20 +21,26 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
+    //主导航
     self.homeVC = [[HomeViewController alloc] init];
     self.mainNav = [[UINavigationController alloc] initWithRootViewController:_homeVC];
     //_mainNav.navigationBarHidden = YES; //用这个会影响右滑关闭手势，用下面那个
     _mainNav.navigationBar.hidden=YES;
     _mainNav.navigationBar.translucent = NO; //不要导航条模糊，为了让页面从导航条下部是0开始，如果为YES，则从屏幕顶部开始是0
 
+    
     //添加自定义导航栏
-    CustomNavBar *custNavBar = [[CustomNavBar alloc] init];
-    custNavBar.navController = _mainNav;
-    [_mainNav.view addSubview:custNavBar];
+//    CustomNavBar *custNavBar = [CustomNavBar sharedNavBar];
+//    custNavBar.navController = _mainNav;
+//    [_mainNav.view addSubview:custNavBar];
+    
+    [[CustomNavBar sharedNavBar] addNavBarOnMainNav:_mainNav];
     
     
+    //左侧菜单页
     self.menuVC = [[MenuViewController alloc] init];
 
+    //主框架
     self.rootViewController = [[RESideMenu alloc] initWithContentViewController:_mainNav leftMenuViewController:_menuVC rightMenuViewController:nil];
     _rootViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
     _rootViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
@@ -46,6 +52,7 @@
     _rootViewController.contentViewShadowEnabled = YES;
     _rootViewController.parallaxEnabled = NO;
     _rootViewController.animationDuration = 0.25;
+    
     
     self.window.rootViewController = _rootViewController;
 
