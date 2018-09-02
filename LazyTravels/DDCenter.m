@@ -129,8 +129,8 @@
     if([linkURL hasPrefix:@"home://"]) //回到home页面
     {
         //home://
-//        SettingViewController *settingVC = [[SettingViewController alloc] init];
-//        [navController pushViewController:settingVC animated:YES];
+        [navController.sideMenuViewController hideMenuViewController];
+        [navController popToRootViewControllerAnimated:YES];
     }
     else if([linkURL hasPrefix:@"setting://"]) //进入setting页面
     {

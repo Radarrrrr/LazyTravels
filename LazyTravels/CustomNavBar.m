@@ -108,7 +108,7 @@ typedef enum {
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     NSInteger vcount = _navController.viewControllers.count;
-    NSLog(@"vcount: %ld", vcount);
+    //NSLog(@"vcount: %ld", vcount);
     
     if(vcount > 1)
     {

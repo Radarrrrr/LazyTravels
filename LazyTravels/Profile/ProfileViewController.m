@@ -20,6 +20,20 @@
     
     self.view.backgroundColor = COLOR_ORANGE;
     
+    //设置一个按钮点击实现抽屉效果
+    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    leftButton.frame = CGRectMake(0, 250, 150, 150);
+    [leftButton addTarget:self action:@selector(leftButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [leftButton setTitle:@"HOME" forState:UIControlStateNormal];
+    [self.view addSubview:leftButton];
+    
+    
+}
+
+-(void)leftButtonPressed
+{
+    [DDCenter actionForLinkURL:@"home://"];
+    
 }
 
 

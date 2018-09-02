@@ -44,6 +44,9 @@
     _rootViewController.contentViewShadowOpacity = 0.6;
     _rootViewController.contentViewShadowRadius = 12;
     _rootViewController.contentViewShadowEnabled = YES;
+    _rootViewController.parallaxEnabled = NO;
+    _rootViewController.animationDuration = 0.25;
+    
     self.window.rootViewController = _rootViewController;
 
     self.window.backgroundColor = [UIColor whiteColor];
