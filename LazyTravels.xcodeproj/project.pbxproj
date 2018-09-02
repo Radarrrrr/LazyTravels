@@ -17,6 +17,9 @@
 		0C89777A2133DDF9003B6CAB /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8977792133DDF9003B6CAB /* HomeViewController.m */; };
 		0C89777D2133DE1D003B6CAB /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C89777C2133DE1D003B6CAB /* SettingViewController.m */; };
 		0C8977812133E2A9003B6CAB /* TravelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8977802133E2A9003B6CAB /* TravelsViewController.m */; };
+		0C953DDC213BAF1C002693E0 /* LTFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C953DDB213BAF1C002693E0 /* LTFunction.m */; };
+		0C953DE2213BBC83002693E0 /* DDCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C953DE1213BBC83002693E0 /* DDCenter.m */; };
+		0C953DE6213BBE4E002693E0 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C953DE5213BBE4E002693E0 /* ProfileViewController.m */; };
 		2406A1E3EDD3F0FDCDE82692 /* libPods-LazyTravels.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B0867255CCED09E6D76E48 /* libPods-LazyTravels.a */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +44,12 @@
 		0C89777C2133DE1D003B6CAB /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		0C89777F2133E2A9003B6CAB /* TravelsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TravelsViewController.h; sourceTree = "<group>"; };
 		0C8977802133E2A9003B6CAB /* TravelsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TravelsViewController.m; sourceTree = "<group>"; };
+		0C953DDA213BAF1C002693E0 /* LTFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LTFunction.h; sourceTree = "<group>"; };
+		0C953DDB213BAF1C002693E0 /* LTFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LTFunction.m; sourceTree = "<group>"; };
+		0C953DE0213BBC83002693E0 /* DDCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCenter.h; sourceTree = "<group>"; };
+		0C953DE1213BBC83002693E0 /* DDCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCenter.m; sourceTree = "<group>"; };
+		0C953DE4213BBE4E002693E0 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		0C953DE5213BBE4E002693E0 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		3D7FF84EFF49AF0BD5DADE04 /* Pods-LazyTravels.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyTravels.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LazyTravels/Pods-LazyTravels.debug.xcconfig"; sourceTree = "<group>"; };
 		69D448095D2049BAEFE8A4B3 /* Pods-LazyTravels.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyTravels.release.xcconfig"; path = "Pods/Target Support Files/Pods-LazyTravels/Pods-LazyTravels.release.xcconfig"; sourceTree = "<group>"; };
 		C0B0867255CCED09E6D76E48 /* libPods-LazyTravels.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LazyTravels.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +89,10 @@
 			isa = PBXGroup;
 			children = (
 				0C4F5B99213A9A4200B10613 /* Constants.h */,
+				0C953DE0213BBC83002693E0 /* DDCenter.h */,
+				0C953DE1213BBC83002693E0 /* DDCenter.m */,
+				0C953DDA213BAF1C002693E0 /* LTFunction.h */,
+				0C953DDB213BAF1C002693E0 /* LTFunction.m */,
 				0C8977352133CD86003B6CAB /* AppDelegate.h */,
 				0C8977362133CD86003B6CAB /* AppDelegate.m */,
 				0C4F5B8D213A92A800B10613 /* CustomNavBar.h */,
@@ -88,6 +101,7 @@
 				0C4F5B8B21353D7B00B10613 /* MenuViewController.m */,
 				0C8977762133DDB1003B6CAB /* Home */,
 				0C89777E2133E291003B6CAB /* Travels */,
+				0C953DE3213BBE39002693E0 /* Profile */,
 				0C8977772133DDB1003B6CAB /* Setting */,
 				0C89773E2133CD88003B6CAB /* Assets.xcassets */,
 				0C89773B2133CD86003B6CAB /* Main.storyboard */,
@@ -124,6 +138,15 @@
 				0C8977802133E2A9003B6CAB /* TravelsViewController.m */,
 			);
 			path = Travels;
+			sourceTree = "<group>";
+		};
+		0C953DE3213BBE39002693E0 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				0C953DE4213BBE4E002693E0 /* ProfileViewController.h */,
+				0C953DE5213BBE4E002693E0 /* ProfileViewController.m */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		A2B0FB8264D14B6379B8A59F /* Pods */ = {
@@ -239,8 +262,11 @@
 				0C8977812133E2A9003B6CAB /* TravelsViewController.m in Sources */,
 				0C8977372133CD86003B6CAB /* AppDelegate.m in Sources */,
 				0C4F5B8C21353D7B00B10613 /* MenuViewController.m in Sources */,
+				0C953DE6213BBE4E002693E0 /* ProfileViewController.m in Sources */,
 				0C89777A2133DDF9003B6CAB /* HomeViewController.m in Sources */,
+				0C953DDC213BAF1C002693E0 /* LTFunction.m in Sources */,
 				0C4F5B8F213A92A800B10613 /* CustomNavBar.m in Sources */,
+				0C953DE2213BBC83002693E0 /* DDCenter.m in Sources */,
 				0C89777D2133DE1D003B6CAB /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

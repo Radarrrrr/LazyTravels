@@ -8,12 +8,22 @@
 
 #import "CustomNavBar.h"
 
+
+typedef enum {
+    directionLeft = 0,    //返回按钮方向向左
+    directionRight        //返回按钮方向向右
+} NavBtnDirection;
+
+
+
 @interface CustomNavBar () {
     
    UINavigationController *_navController;
 }
 
 @property (nonatomic, strong) UIButton *navBackBtn;
+
+@property (nonatomic) NavBtnDirection curDirection; //当前按钮朝向
 
 @end
 
@@ -38,6 +48,7 @@
     if (self) 
     {
         self.backgroundColor = COLOR_CLEAR;
+        self.curDirection = directionRight;
         
         //add navBackBtn
         self.navBackBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -102,16 +113,26 @@
     if(vcount > 1)
     {
         //还有可以退的层，显示向左按钮
-        //TO DO: 做按钮旋转
+        [self rotateNavBtnToDirection:directionLeft];
     }
     else
     {
         //已经到了root，显示向右按钮
-        //TO DO: 做按钮旋转
+        [self rotateNavBtnToDirection:directionRight];
     }
         
 }
 
+
+- (void)rotateNavBtnToDirection:(NavBtnDirection)direction
+{  
+    if(_curDirection == direction) return;
+    
+    [LTFunction rotateView:_navBackBtn angle:M_PI duration:0.25 completion:^{
+        
+        self.curDirection = direction;
+    }];
+}  
 
 
 

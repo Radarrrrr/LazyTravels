@@ -40,20 +40,33 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    switch (indexPath.row) {
-//        case 0:
+    [self.sideMenuViewController hideMenuViewController];
+    
+    switch (indexPath.row) {
+        case 0:
+        {
 //            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[[DEMOFirstViewController alloc] init]]
 //                                                         animated:YES];
-//            [self.sideMenuViewController hideMenuViewController];
-//            break;
-//        case 1:
+            [DDCenter actionForLinkURL:@"profile://"];
+        }
+            break;
+        case 1:
+        {
 //            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[[DEMOSecondViewController alloc] init]]
 //                                                         animated:YES];
 //            [self.sideMenuViewController hideMenuViewController];
-//            break;
-//        default:
-//            break;
-//    }
+            
+            [DDCenter actionForLinkURL:@"setting://"];
+        }
+            break;
+        case 2:
+        {
+            
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark -
@@ -61,7 +74,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 54;
+    return 60;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -83,13 +96,13 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         cell.backgroundColor = [UIColor clearColor];
-        cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
+        cell.textLabel.font = FONT(16);
         cell.textLabel.textColor = [UIColor whiteColor];
         cell.textLabel.highlightedTextColor = [UIColor lightGrayColor];
         cell.selectedBackgroundView = [[UIView alloc] init];
     }
     
-    NSArray *titles = @[@"Profile", @"Settings", @"Log Out"];
+    NSArray *titles = @[@"个人中心", @"设置", @"登出"];
     NSArray *images = @[@"IconProfile", @"IconSettings", @"IconEmpty"];
     cell.textLabel.text = titles[indexPath.row];
     cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
