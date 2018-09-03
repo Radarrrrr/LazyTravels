@@ -93,7 +93,7 @@
     NSLog(@"willShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
     
     UIView *contentView = menuViewController.sideMenuViewController.contentViewController.view;
-    [RDFunction addRadiusToView:contentView radius:12];
+    [RDFunction addRadiusToView:contentView radius:15];
 }
 
 - (void)sideMenu:(RESideMenu *)sideMenu didShowMenuViewController:(UIViewController *)menuViewController
