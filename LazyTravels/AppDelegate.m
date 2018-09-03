@@ -36,7 +36,7 @@
 
     //主框架
     self.rootViewController = [[RESideMenu alloc] initWithContentViewController:_mainNav leftMenuViewController:_menuVC rightMenuViewController:nil];
-    _rootViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
+    _rootViewController.backgroundImage = [self menuBackImageWithTimeSlot];
     _rootViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
     _rootViewController.delegate = self;
     _rootViewController.contentViewShadowColor = [UIColor blackColor];
@@ -114,6 +114,45 @@
     [RDFunction addRadiusToView:contentView radius:0];
 }
 
+
+
+#pragma mark - 一些配套方法
+- (UIImage *)menuBackImageWithTimeSlot
+{
+    //根据每天时间段返回menu的背景图片
+    NSString *imgName = @"night";
+    
+    NSInteger now = [[RDFunction stringFromDate:[NSDate date] useFormat:@"HH"] integerValue];
+    NSLog(@"now time: %ld", now);
+    
+    if(now >= 6 && now < 9) //早上
+    {
+        imgName = @"morning";
+    }
+    else if(now >= 9 && now < 12) //上午
+    {
+        imgName = @"forenoon";
+    }
+    else if(now >= 12 && now < 14) //中午
+    {
+        imgName = @"noon";
+    }
+    else if(now >= 14 && now < 17) //下午
+    {
+        imgName = @"afternoon";
+    }
+    else if(now >= 17 && now < 20) //傍晚
+    {
+        imgName = @"dusk";
+    }
+    else                           //夜晚
+    {
+        imgName = @"night";
+    }
+  
+    UIImage *backImg = [UIImage imageNamed:imgName];
+    return backImg;
+}
 
 
 
