@@ -9,8 +9,8 @@
 #import "CustomNavBar.h"
 
 
-#define NAV_FRAME_SHOW  CGRectMake(0, 0, SCR_WIDTH, 64) //导航条显示时候的尺寸
-#define NAV_FRAME_HIDE  CGRectMake(0, 0, 60, 64)        //导航条隐藏时候的尺寸
+#define NAV_FRAME_SHOW  CGRectMake(0, 0, SCR_WIDTH, NAV_BAR_HEIGHT) //导航条显示时候的尺寸
+#define NAV_FRAME_HIDE  CGRectMake(0, 0, 60, NAV_BAR_HEIGHT)        //导航条隐藏时候的尺寸
 
 
 typedef enum {
@@ -29,8 +29,8 @@ typedef enum {
 
 @property (nonatomic, weak)   UINavigationController *navController; //主导航控制器
 
-//@property (nonatomic, strong) UIImageView *tintView;     //导航条背景，用于修改颜色、透明度、贴图等
-@property (nonatomic, strong) UIButton *navBackBtn;      //主导航返回按钮
+//@property (nonatomic, strong) UIImageView *tintView;        //导航条背景，用于修改颜色、透明度、贴图等
+@property (nonatomic, strong) UIButton *navBackBtn;         //主导航返回按钮
 @property (nonatomic)         NavBtnDirection curDirection; //当前按钮朝向
 
 @end
@@ -71,7 +71,7 @@ typedef enum {
         
         //add navBackBtn
         self.navBackBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _navBackBtn.frame = CGRectMake(10, 22, 40, 40);
+        _navBackBtn.frame = CGRectMake(10, STATUS_BAR_HEIGHT+2, 40, 40);
         [_navBackBtn setBackgroundImage:IMAGE(@"IconNavback") forState:UIControlStateNormal];
         [_navBackBtn addTarget:self action:@selector(navBackAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_navBackBtn];

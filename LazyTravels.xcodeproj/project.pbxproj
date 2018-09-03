@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C393441213D0D9100C27CBA /* DeviceUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C393440213D0D9000C27CBA /* DeviceUtils.m */; };
 		0C4F5B8C21353D7B00B10613 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4F5B8B21353D7B00B10613 /* MenuViewController.m */; };
 		0C4F5B8F213A92A800B10613 /* CustomNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4F5B8E213A92A800B10613 /* CustomNavBar.m */; };
 		0C8977372133CD86003B6CAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8977362133CD86003B6CAB /* AppDelegate.m */; };
@@ -24,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C39343F213D0D9000C27CBA /* DeviceUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceUtils.h; sourceTree = "<group>"; };
+		0C393440213D0D9000C27CBA /* DeviceUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceUtils.m; sourceTree = "<group>"; };
 		0C4F5B8321352ECC00B10613 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		0C4F5B8A21353D7B00B10613 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		0C4F5B8B21353D7B00B10613 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
@@ -89,10 +92,12 @@
 			isa = PBXGroup;
 			children = (
 				0C4F5B99213A9A4200B10613 /* Constants.h */,
-				0C953DE0213BBC83002693E0 /* DDCenter.h */,
-				0C953DE1213BBC83002693E0 /* DDCenter.m */,
+				0C39343F213D0D9000C27CBA /* DeviceUtils.h */,
+				0C393440213D0D9000C27CBA /* DeviceUtils.m */,
 				0C953DDA213BAF1C002693E0 /* LTFunction.h */,
 				0C953DDB213BAF1C002693E0 /* LTFunction.m */,
+				0C953DE0213BBC83002693E0 /* DDCenter.h */,
+				0C953DE1213BBC83002693E0 /* DDCenter.m */,
 				0C8977352133CD86003B6CAB /* AppDelegate.h */,
 				0C8977362133CD86003B6CAB /* AppDelegate.m */,
 				0C4F5B8D213A92A800B10613 /* CustomNavBar.h */,
@@ -262,6 +267,7 @@
 				0C8977812133E2A9003B6CAB /* TravelsViewController.m in Sources */,
 				0C8977372133CD86003B6CAB /* AppDelegate.m in Sources */,
 				0C4F5B8C21353D7B00B10613 /* MenuViewController.m in Sources */,
+				0C393441213D0D9100C27CBA /* DeviceUtils.m in Sources */,
 				0C953DE6213BBE4E002693E0 /* ProfileViewController.m in Sources */,
 				0C89777A2133DDF9003B6CAB /* HomeViewController.m in Sources */,
 				0C953DDC213BAF1C002693E0 /* LTFunction.m in Sources */,
