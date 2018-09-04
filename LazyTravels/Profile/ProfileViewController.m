@@ -20,6 +20,8 @@
     
     self.view.backgroundColor = COLOR_ORANGE;
     
+    self.title = @"个人中心";
+    
     //设置一个按钮点击实现抽屉效果
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     leftButton.frame = CGRectMake(0, 250, 150, 150);

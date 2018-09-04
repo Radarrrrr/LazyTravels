@@ -9,10 +9,6 @@
 #import "CustomNavBar.h"
 
 
-#define NAV_FRAME_SHOW  CGRectMake(0, 0, SCR_WIDTH, NAV_BAR_HEIGHT) //导航条显示时候的尺寸
-#define NAV_FRAME_HIDE  CGRectMake(0, 0, 60, NAV_BAR_HEIGHT)        //导航条隐藏时候的尺寸
-
-
 typedef enum {
     directionLeft = 0,    //返回按钮方向向左
     directionRight        //返回按钮方向向右
@@ -23,15 +19,14 @@ typedef enum {
 @interface CustomNavBar () {
     
     UINavigationController *_navController;
-    //BOOL _navBarHidden;
-    
 }
 
 @property (nonatomic, weak)   UINavigationController *navController; //主导航控制器
 
-//@property (nonatomic, strong) UIImageView *tintView;        //导航条背景，用于修改颜色、透明度、贴图等
 @property (nonatomic, strong) UIButton *navBackBtn;         //主导航返回按钮
 @property (nonatomic)         NavBtnDirection curDirection; //当前按钮朝向
+
+@property (nonatomic, strong) UILabel *titleLabel; //标题label
 
 @end
 
@@ -39,7 +34,6 @@ typedef enum {
 
 @implementation CustomNavBar
 @dynamic navController;
-//@dynamic navBarHidden;
 
 
 + (instancetype)sharedNavBar
@@ -47,7 +41,7 @@ typedef enum {
     static dispatch_once_t onceToken;
     static CustomNavBar *navBar;
     dispatch_once(&onceToken, ^{
-        navBar = [[CustomNavBar alloc] initWithFrame:NAV_FRAME_HIDE];
+        navBar = [[CustomNavBar alloc] initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT, 60, 44)];
     });
     return navBar;
 }
@@ -60,23 +54,28 @@ typedef enum {
         self.backgroundColor = [UIColor clearColor];
         self.curDirection = directionRight;
         
-        //_navBarHidden = YES;
         
-        //add tintView
-//        self.tintView = [[UIImageView alloc] initWithFrame:NAV_FRAME_SHOW];
-//        _tintView.backgroundColor = [UIColor whiteColor];
-//        _tintView.alpha = 0.5;
-//        [self addSubview:_tintView];
+        //add titlelabel
+        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 8, SCR_WIDTH-60-40, 28)]; 
+        _titleLabel.backgroundColor = [UIColor clearColor];
+        _titleLabel.alpha = 0.6;
+        _titleLabel.userInteractionEnabled = NO;
+        _titleLabel.textAlignment = NSTextAlignmentLeft;
+        _titleLabel.textColor = COLOR_TEXT_A;
+        _titleLabel.font = [UIFont boldSystemFontOfSize:16];
+        [self addSubview:_titleLabel];
+        
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(-4, CGRectGetHeight(_titleLabel.frame)-1.0, CGRectGetWidth(_titleLabel.frame)+4, 1.0)];
+        line.backgroundColor = RGBS(150);
+        [_titleLabel addSubview:line];
         
         
         //add navBackBtn
         self.navBackBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _navBackBtn.frame = CGRectMake(10, STATUS_BAR_HEIGHT+2, 40, 40);
+        _navBackBtn.frame = CGRectMake(10, 2, 40, 40);
         [_navBackBtn setBackgroundImage:IMAGE(@"IconNavback") forState:UIControlStateNormal];
         [_navBackBtn addTarget:self action:@selector(navBackAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_navBackBtn];
-        
-        
         
     }
     
@@ -104,15 +103,6 @@ typedef enum {
 {
     return _navController;
 }
-
-//- (void)setNavBarHidden:(BOOL)navBarHidden
-//{
-//    _navBarHidden = navBarHidden;
-//}
-//- (BOOL)navBarHidden
-//{
-//    return _navBarHidden;
-//}
 
 
 
@@ -148,6 +138,18 @@ typedef enum {
 //UINavigationControllerDelegate
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
+    //显示或者隐藏title
+    _titleLabel.text = viewController.title;
+    if(self.titleLabel.text)
+    {
+        self.titleLabel.alpha = 0.6;
+    }
+    else
+    {
+        self.titleLabel.alpha = 0.0;
+    }
+
+    //调整返回按钮状态
     NSInteger vcount = _navController.viewControllers.count;
     //NSLog(@"vcount: %ld", vcount);
     
@@ -174,10 +176,6 @@ typedef enum {
     }];
 }  
 
-//- (void)showNavBar:(BOOL)bshow
-//{
-//    
-//}
 
 
 @end

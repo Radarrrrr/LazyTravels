@@ -131,6 +131,8 @@
 
 + (BOOL)deviceIsiPhoneX
 {
+    //return YES;
+    
     NSString *name = [self deviceModelName];
     if(name && [name isEqualToString:@"iPhone X"])
     {

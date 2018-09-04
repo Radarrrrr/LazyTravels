@@ -20,6 +20,8 @@
     
     self.view.backgroundColor = [UIColor greenColor];
     
+    self.title = @"设置";
+    
     
 }
 
