@@ -20,7 +20,6 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor whiteColor];
-    //self.title = @"首页";
     
     
     //设置一个按钮点击实现抽屉效果
